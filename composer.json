@@ -1,0 +1,33 @@
+
+{
+  "name": "geekjob/expressjs-php-session-handler",
+  "description": "Session handler compatible with Node.js express-session handler",
+  "type": "library",
+  "version": "1.0.0",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Alexander Mayorov",
+      "email": "major@geekjob.ru"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "pear",
+      "url": "https://pear.php.net"
+    },
+    {
+      "type": "pecl",
+      "url": "https://pecl.php.net"
+    }
+  ],
+  "require": {
+    "php": "^7.2"
+  },
+  "autoload": {
+    "files": [
+      "lib/ExpressjsSessionHandler.php"
+    ]
+  }
+}
