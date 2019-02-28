@@ -19,7 +19,7 @@ with the [connect-redis](https://github.com/tj/connect-redis) Session Store as c
 ### Install Redis
 You can install it using `pecl install redis`
 
-In Docker file (custom docker php image):
+In Docker file:
 ```dockerfile
 FROM php:fpm
 ...
