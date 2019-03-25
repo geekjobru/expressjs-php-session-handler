@@ -4,7 +4,6 @@
   "description": "Session handler compatible with Node.js express-session handler",
   "type": "library",
   "version": "1.0.0",
-  "minimum-stability": "stable",
   "license": "MIT",
   "authors": [
     {
