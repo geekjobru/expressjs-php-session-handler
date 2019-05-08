@@ -84,7 +84,7 @@ require_once 'vendor/autoload.php';
 ### Configure for production server via php.ini file
 
 ```ini
-session.session_name = sid
+session.name = sid
 session.save_handler = redis
 session.save_path = "tcp://127.0.0.1/?prefix=session:"
 session.serialize_handler = php_serialize
