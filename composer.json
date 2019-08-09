@@ -3,7 +3,7 @@
   "name": "geekjob/expressjs-php-session-handler",
   "description": "Session handler compatible with Node.js express-session handler",
   "type": "library",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "minimum-stability": "dev",
   "prefer-stable": true,
   "license": "MIT",
