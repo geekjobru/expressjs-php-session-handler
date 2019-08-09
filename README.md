@@ -33,7 +33,7 @@ Just run to get the package from
 [packagist.org](https://packagist.org/packages/geekjob/expressjs-php-session-handler):
 
 ```bash
-composer require geekjob/expressjs-php-session-handler
+composer require geekjob/expressjs-session-handler
 ```
 
 ## Setup and Usage
@@ -54,6 +54,7 @@ app.use(session({
 		port  : 6379,
 		client: redis,
 		prefix: 'session:',
+        ttl   : 3600 // 60 min
 	})
 }));
 ``` 
@@ -76,6 +77,7 @@ require_once 'vendor/autoload.php';
 		'handler' => 'redis',
 		'path'    => 'tcp://127.0.0.1:6379',
 		'prefix'  => 'session:',
+        'ttl'	  => 3600 // 60 min
 	],
 	'secure' => false // Set to true if signature verification is needed.
 ]);
@@ -84,7 +86,7 @@ require_once 'vendor/autoload.php';
 ### Configure for production server via php.ini file
 
 ```ini
-session.name = sid
+session.session_name = sid
 session.save_handler = redis
 session.save_path = "tcp://127.0.0.1/?prefix=session:"
 session.serialize_handler = php_serialize
@@ -94,11 +96,11 @@ session.serialize_handler = php_serialize
 ; http://php.net/session.gc-maxlifetime
 ; default: session.gc_maxlifetime = 1440 
 ; Redis Sessions use this value for setting TTL
-session.gc_maxlifetime = maxage - time()
+session.gc_maxlifetime =
 
 ; Lifetime in seconds of cookie or, if 0, until browser is restarted.
 ; http://php.net/session.cookie-lifetime
-session.cookie_lifetime = maxage - time()
+session.cookie_lifetime =
 ```
 
 ```php
