@@ -33,7 +33,7 @@ Just run to get the package from
 [packagist.org](https://packagist.org/packages/geekjob/expressjs-php-session-handler):
 
 ```bash
-composer require geekjob/expressjs-session-handler
+composer require geekjob/expressjs-php-session-handler
 ```
 
 ## Setup and Usage
