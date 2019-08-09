@@ -1,12 +1,13 @@
-<?php declare(strict_types=1); namespace GeekJOB;
+<?php declare(strict_types=1);
 
+namespace GeekJOB;
 
 /**
  * Node.js epress-session compatible handler
  *
  * Created by PhpStorm.
  * User: Alexander Mayorov <major@geekjob.ru>
- * Date: 2019-02-17
+ * Date: 2019-08-09
  * Time: 06:42
  */
 class ExpressjsSessionHandler extends \SessionHandler {
