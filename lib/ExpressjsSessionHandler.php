@@ -50,12 +50,12 @@ class ExpressjsSessionHandler extends \SessionHandler {
 		// Set session cookie settings
 		if (!empty($cfg['cookie'])) {
 			$cfg['cookie']['maxage'] = (int)$cfg['cookie']['maxage'];
-			$lifetime = $cfg['cookie']['maxage'] > 0 ? $cfg['cookie']['maxage']-time() : 0;
+
 			session_set_cookie_params(
-				$lifetime,
+				$cfg['cookie']['maxage'],
 				$cfg['cookie']['path'],
 				$cfg['cookie']['domain'],
-				/*$secure =*/false,
+				/*$secure =*/true,
 				/*$httponly =*/true
 			);
 
@@ -63,7 +63,7 @@ class ExpressjsSessionHandler extends \SessionHandler {
 				$cfg['cookie']['expires'] = str_replace(
 					'+00:00',
 					'Z',
-					gmdate('c', $cfg['cookie']['maxage'])
+					gmdate('c', time() + $cfg['cookie']['maxage'])
 				)
 			;
 		}
@@ -82,12 +82,16 @@ class ExpressjsSessionHandler extends \SessionHandler {
 					break;
 				// todo: case 'mongo': break;
 			}
+
 			ini_set('session.save_path', $save_path);
 			ini_set('session.serialize_handler', 'php_serialize');
-			if ($lifetime > 0) {
-				ini_set('session.gc_maxlifetime', (string) $lifetime);
-				ini_set('session.cookie_lifetime',(string) $lifetime);
-			}
+
+			if ($cfg['store']['ttl'] > 0)
+				ini_set('session.gc_maxlifetime', (string)$cfg['store']['ttl'])
+			;
+			if (isset($cfg['cookie']['maxage']))
+				ini_set('session.cookie_lifetime',(string)$cfg['cookie']['maxage'])
+			;
 		}
 
 		$this->secret = (string) $cfg['secret'];
