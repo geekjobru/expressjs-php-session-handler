@@ -55,8 +55,8 @@ class ExpressjsSessionHandler extends \SessionHandler {
 				$cfg['cookie']['maxage'],
 				$cfg['cookie']['path'],
 				$cfg['cookie']['domain'],
-				/*$secure =*/true,
-				/*$httponly =*/true
+				$cfg['cookie']['secure'] ??true,
+				$cfg['cookie']['httpOnly'] ??true
 			);
 
 			if (empty($cfg['cookie']['expires']))
