@@ -71,7 +71,7 @@ require_once 'vendor/autoload.php';
 	'cookie' => [
 		'domain'  => '.your.domain', // Share cookie through sub domains
 		'path'    => '/',
-		'maxage'  => strtotime('+1hour'), // Set maxage
+		'maxage'  => strtotime('+1hour')-time(), // Set maxage
 	],
 	'store' => [
 		'handler' => 'redis',
