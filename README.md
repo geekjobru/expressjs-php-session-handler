@@ -54,7 +54,7 @@ app.use(session({
 		port  : 6379,
 		client: redis,
 		prefix: 'session:',
-        ttl   : 3600 // 60 min
+		ttl   : 3600 // 60 min
 	})
 }));
 ``` 
@@ -77,7 +77,7 @@ require_once 'vendor/autoload.php';
 		'handler' => 'redis',
 		'path'    => 'tcp://127.0.0.1:6379',
 		'prefix'  => 'session:',
-        'ttl'	  => 3600 // 60 min
+        	'ttl'	  => 3600 // 60 min
 	],
 	'secure' => false // Set to true if signature verification is needed.
 ]);
