@@ -157,6 +157,20 @@ class ExpressjsSessionHandler extends \SessionHandler {
 	}
 
 	/**
+	 * Destroy a session
+	 * @link https://www.php.net/manual/en/sessionhandlerinterface.destroy.php
+	 * @param string $id The session id.
+	 * @return bool <p>
+	 * The return value (usually TRUE on success, FALSE on failure).
+	 * Note this value is returned internally to PHP for processing.
+	 * </p>
+	 * @since 5.4.0
+	 */
+	public function destroy($id): bool {		
+		return parent::destroy($this->idmutator($id));
+	}
+
+	/**
 	 * Generate session ID compatible with node.js express-session
 	 *
 	 * @return string
